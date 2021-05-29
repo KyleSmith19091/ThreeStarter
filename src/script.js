@@ -8,7 +8,7 @@ const textureLoader = new THREE.TextureLoader();
 const normalTexture = textureLoader.load("/NormalMap.png");
 
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -21,7 +21,7 @@ const geometry = new THREE.SphereGeometry(.5, 64, 64);
 
 // Materials
 const material = new THREE.MeshStandardMaterial();
-material.color = new THREE.Color(0x292929);
+material.color = new THREE.Color(0x000000);
 material.roughness = 0.2;
 material.metalness = 0.7;
 material.normalMap = normalTexture;
@@ -31,36 +31,28 @@ const sphere = new THREE.Mesh(geometry, material);
 scene.add(sphere);
 
 // Lights
-const pointLight = new THREE.PointLight(0xffffff, 0.1);
-pointLight.position.x = 2
-pointLight.position.y = 3
-pointLight.position.z = 4
-scene.add(pointLight)
-
-const redLight = new THREE.PointLight(0xff0000, 1);
+const redLight = new THREE.PointLight(0xff0000, 2);
 redLight.position.x = -1.86;
 redLight.position.y = 1;
 redLight.position.z = -1.65;
 redLight.intensity = 10;
 scene.add(redLight)
 
-const pointLightHelper = new THREE.PointLightHelper(redLight);
-scene.add(pointLightHelper);
+// gui.add(redLight.position, 'x', -10, 6);
+// gui.add(redLight.position, 'y', -10, 6);
+// gui.add(redLight.position, 'z', -10, 6);
 
-gui.add(redLight.position, 'x', -10, 6);
-gui.add(redLight.position, 'y', -10, 6);
-gui.add(redLight.position, 'z', -10, 6);
+const blueLight = new THREE.PointLight(0x0000ff, 2);
+blueLight.position.x = 2.1;
+blueLight.position.y = -2.4;
+blueLight.position.z = -2.1;
+blueLight.intensity = 10;
 
-const blueLight = new THREE.PointLight(0x00ff00, 2);
-blueLight.position.x = -1.86;
-blueLight.position.y = 1;
-blueLight.position.z = -1.65;
-blueLight.intensity = 1;
 scene.add(blueLight);
 
-gui.add(blueLight.position, 'x', -10, 6);
-gui.add(blueLight.position, 'y', -10, 6);
-gui.add(blueLight.position, 'z', -10, 6);
+// gui.add(blueLight.position, 'x', -10, 6);
+// gui.add(blueLight.position, 'y', -10, 6);
+// gui.add(blueLight.position, 'z', -10, 6);
 
 /**
  * Sizes
