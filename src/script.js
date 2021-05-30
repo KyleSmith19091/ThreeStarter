@@ -120,7 +120,6 @@ document.addEventListener("mousemove", (e) => {
 
 window.addEventListener("scroll", (e) => {
     sphere.rotation.y = window.scrollY * 0.01;
-    console.log(window.scrollY);
 });
 
 
@@ -149,4 +148,13 @@ const tick = () => {
     window.requestAnimationFrame(tick)
 }
 
-tick()
+tick();
+
+////////////
+
+const topLink = document.querySelector("#top");
+
+top.addEventListener("click", (e) => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});

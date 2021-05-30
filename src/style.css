@@ -10,6 +10,7 @@ body
     height: 100vh;
     font-family: 'Poppins';
     background: rgb(24,24,24);
+    scroll-behavior: smooth;
 }
 
 .webgl
@@ -19,6 +20,10 @@ body
     left: 0;
     outline: none;
     mix-blend-mode: exclusion;
+}
+
+.webgl:hover {
+    transform: rotate(15deg);
 }
 
 .container {
@@ -42,11 +47,25 @@ span {
     border-left: transparent;
 }
 
-span:hover {
-    color: white;
-}
-
 h2 {
     color: white;
     font-size: 3vw;
+    transition: all 0.3s linear;
+}
+
+h2:hover {
+    transition: all 0.3s linear;
+    background: rgb(255,42,84);
+    background: linear-gradient(90deg, rgba(255,42,84,1) 8%, rgba(121,9,118,1) 63%, rgba(63,0,176,1) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2:hover span {
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s linear;
+    font-size: 3.5vw;
+    cursor: pointer;
 }
